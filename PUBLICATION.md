@@ -7,6 +7,6 @@ This is a preparation checklist, **not** a declaration that the whole Teapot pro
 - [ ] Review URLs, device names, public IPs, fleet details, screenshots, and logs in examples, tests, docs, assets, and Git history.
 - [ ] Verify all getting-started commands against a clean machine and confirm whether binaries/APKs/packages are actually published before advertising installation commands.
 - [ ] Decide on a public support/security reporting path and add appropriate contributor/security guidance.
-- [ ] Verify the documentation and marketing deployments, links and redirects, and keep the authenticated control dashboard separate. The docs URL is `https://teapot-iroh.vercel.app/`.
+- [ ] Verify the documentation deployment, links and redirects, and keep the authenticated control dashboard separate. The marketing site is at `https://teapot-iroh.vercel.app/`; the docs deployment is not yet available.
 - [ ] Confirm which repositories can be made public together; avoid broken links to still-private dependencies.
 - [ ] Run tests/builds and obtain the owner's approval before changing GitHub repository visibility or deploying a site.

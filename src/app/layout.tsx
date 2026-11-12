@@ -3,7 +3,6 @@ import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://teapot-iroh.vercel.app'),
   title: { default: 'Teapot Docs', template: '%s | Teapot Docs' },
   description: 'Guides for Teapot, a personal mesh for your devices.',
 };
