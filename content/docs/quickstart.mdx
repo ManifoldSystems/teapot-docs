@@ -1,6 +1,8 @@
-# Quickstart: two computers
+---
+title: 'Quickstart: two computers'
+---
 
-You need two computers on different networks for a meaningful public-IP test, access to the [control dashboard](https://teapot.example.com/login), and a built Teapot agent on each computer. The Rust agent supports macOS (launchd) and Linux (systemd user service). For a phone instead of the second computer, see [Android exit node](android.md).
+You need two computers on different networks for a meaningful public-IP test, access to the [control dashboard](https://teapot.example.com/login), and a built Teapot agent on each computer. The Rust agent supports macOS (launchd) and Linux (systemd user service). For a phone instead of the second computer, see [Android exit node](/android).
 
 ## 1. Build the agent
 
@@ -44,6 +46,6 @@ curl http://127.0.0.1:1080/_teapot/exits
 curl -x http://127.0.0.1:1080 https://ifconfig.me
 ```
 
-The first command shows available exits. The second should print B's public IP. Check B's IP independently to compare. If several exits are available, [select one by name](choose-an-exit.md). If it doesn't work, see [troubleshooting](troubleshooting.md).
+The first command shows available exits. The second should print B's public IP. Check B's IP independently to compare. If several exits are available, [select one by name](/choose-an-exit). If it doesn't work, see [troubleshooting](/troubleshooting).
 
 The default local proxy only handles traffic from applications configured to use it; it does not change the whole computer's network route.

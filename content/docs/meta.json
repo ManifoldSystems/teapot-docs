@@ -1,0 +1,4 @@
+{
+  "title": "Teapot Docs",
+  "pages": ["index", "quickstart", "android", "choose-an-exit", "architecture", "troubleshooting"]
+}
