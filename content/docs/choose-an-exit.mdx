@@ -21,13 +21,18 @@ The username in the local proxy URL selects the exit; it is **not** a login pass
 
 ## Python
 
-Install the [Python client](https://github.com/ManifoldSystems/teapot-py) from its public GitHub repository:
+Clone and build the [Python client](https://github.com/ManifoldSystems/teapot-py)
+locally. Teapot is distributed as source code only:
 
 ```bash
-pip install "git+https://github.com/ManifoldSystems/teapot-py"
+git clone https://github.com/ManifoldSystems/teapot-py.git
+cd teapot-py
+uv sync --locked
+uv build
 ```
 
-It needs the local agent running. For example:
+It needs your locally built agent running. Save the following as a script in
+the checkout and run it with `uv run python your_script.py`:
 
 ```python
 from teapot import Teapot
