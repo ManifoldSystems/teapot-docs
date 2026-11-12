@@ -4,7 +4,7 @@ Guides for [Teapot](https://github.com/ManifoldSystems/teapot): connect your dev
 
 ## Start here
 
-The documentation deployment is not available yet; read the source on GitHub:
+Browse the live docs at [teapot-docs.vercel.app](https://teapot-docs.vercel.app/), or read the source on GitHub:
 
 1. [Introduction](content/docs/index.mdx) — what Teapot does and what it doesn't.
 2. [Quickstart](content/docs/quickstart.mdx) — approve two devices and test an exit.
