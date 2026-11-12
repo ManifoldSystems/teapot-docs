@@ -1,0 +1,31 @@
+# Use an Android phone as an exit
+
+[teapot-app](https://github.com/ManifoldSystems/teapot-app) turns an Android phone into an **exit node** over its own internet connection, including its mobile SIM. It does not route the phone's other apps through Teapot. The app is not described here as a published Play Store release; build it from source for now.
+
+## Build the app
+
+With Flutter and the Android SDK set up:
+
+```bash
+git clone https://github.com/ManifoldSystems/teapot-app.git
+cd teapot-app
+flutter pub get
+flutter test
+flutter build apk --debug
+```
+
+Install the APK on your phone using your usual Android development tools. The first Android build also compiles the iroh Rust core and requires the Android toolchain; consult the [app README](https://github.com/ManifoldSystems/teapot-app) for build details.
+
+## Connect it
+
+1. Start Teapot on the phone and open its approval link.
+2. Sign in to the [control dashboard](https://teapot.example.com/login), approve the phone, and enable **exit** for it.
+3. On your computer, [set up the Rust agent](quickstart.md) and approve it too.
+4. With the phone online, check the available exits on your computer and test a request:
+
+```bash
+curl http://127.0.0.1:1080/_teapot/exits
+curl -x http://127.0.0.1:1080 https://ifconfig.me
+```
+
+To target the phone specifically, use its name from the exits list as the proxy username; see [choose an exit](choose-an-exit.md). Compare the result with the phone's public IP while it is on mobile data. If the computer and phone are on the same Wi-Fi, they may share a public IP.

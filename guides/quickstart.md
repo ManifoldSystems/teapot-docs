@@ -1,0 +1,49 @@
+# Quickstart: two computers
+
+You need two computers on different networks for a meaningful public-IP test, access to the [control dashboard](https://teapot.example.com/login), and a built Teapot agent on each computer. The Rust agent supports macOS (launchd) and Linux (systemd user service). For a phone instead of the second computer, see [Android exit node](android.md).
+
+## 1. Build the agent
+
+On each computer, with Rust/Cargo installed:
+
+```bash
+git clone https://github.com/ManifoldSystems/teapot.git
+cd teapot
+cargo build --release
+```
+
+Use `target/release/teapot` below (or put it on your `PATH` and use `teapot`). There is no published package install command in this guide. The repo is private until the OSS release, so cloning currently needs access.
+
+## 2. Register and approve each device
+
+On **each** computer:
+
+```bash
+./target/release/teapot login
+```
+
+This opens the approval page. Sign in as the dashboard administrator and approve the device. If a browser cannot open, run `login --no-browser` and open the printed URL yourself. Never share the admin password or the device's secret key.
+
+## 3. Enable one exit
+
+In the dashboard, enable **exit** for the computer whose internet connection you want to use (B). Then, on both computers:
+
+```bash
+./target/release/teapot service install
+./target/release/teapot status
+```
+
+`service install` starts `teapot up` in the background. On macOS this is a launchd agent that runs while you are logged in; on Linux it is a systemd user service. If you run from a checkout, keep the binary at the installed path. You can instead run `./target/release/teapot up` in a terminal on each computer for a temporary session.
+
+## 4. Send a request from A through B
+
+On A:
+
+```bash
+curl http://127.0.0.1:1080/_teapot/exits
+curl -x http://127.0.0.1:1080 https://ifconfig.me
+```
+
+The first command shows available exits. The second should print B's public IP. Check B's IP independently to compare. If several exits are available, [select one by name](choose-an-exit.md). If it doesn't work, see [troubleshooting](troubleshooting.md).
+
+The default local proxy only handles traffic from applications configured to use it; it does not change the whole computer's network route.

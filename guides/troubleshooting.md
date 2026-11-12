@@ -1,0 +1,27 @@
+# Troubleshooting
+
+## The device is pending or doesn't appear
+
+Run `teapot status` on a computer. New devices need approval: open the link from `teapot login` (or `teapot login --no-browser`) and approve them in the [dashboard](https://teapot.example.com/login). Check that the device can reach the configured control URL. On Android, open the approval page from the app's status screen.
+
+## No exits show up
+
+Check that the exit device is online, approved, offers an exit, and has **exit enabled** in the dashboard. Check the client is approved too. Query the local proxy from the client:
+
+```bash
+curl http://127.0.0.1:1080/_teapot/exits
+```
+
+If the connection is refused, confirm the agent is running with `teapot service status` or run `teapot up` in a foreground terminal. A computer started with `--no-proxy` will not serve the local proxy.
+
+## The IP isn't what I expected
+
+Make sure your request actually uses the proxy (`curl -x ...`). Name a particular exit if multiple are online. Two devices sharing an uplink can have the same public IPv4. A destination may see IPv6 when both it and the exit support it. Compare with the exit device's own public address.
+
+## It works slowly or intermittently
+
+Iroh may choose a relay if a direct path cannot be established. `teapot status`, `teapot logs`, and the authenticated dashboard can help identify peers and connection paths; avoid sharing unredacted logs publicly. If control is down, cached exit permissions can let existing exits continue, but new approvals or revocations cannot propagate until control is reachable.
+
+## Still stuck?
+
+Check the [agent README](https://github.com/ManifoldSystems/teapot) and [app README](https://github.com/ManifoldSystems/teapot-app) for current flags and known limitations. Share the minimum reproduction steps, OS/app versions, and redacted diagnostic output; never post your secret key, admin token, or production logs.

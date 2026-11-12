@@ -1,0 +1,41 @@
+# Choose an exit
+
+The agent's local HTTP proxy listens on `127.0.0.1:1080`. With approved exits online, it can choose a default exit, or you can select one by name for a particular request.
+
+## HTTP clients
+
+```bash
+# List available exits and their names
+curl http://127.0.0.1:1080/_teapot/exits
+
+# Use the agent's current default
+curl -x http://127.0.0.1:1080 https://ifconfig.me
+
+# Name an exit for this request (replace the example name)
+curl -x http://phone-name@127.0.0.1:1080 https://ifconfig.me
+```
+
+The username in the local proxy URL selects the exit; it is **not** a login password. Keep the proxy bound to loopback; it is not intended to be exposed to other machines. The agent can also prefer a named exit when you start it with `teapot service install --exit <name>`. When an exit disappears, the default can move to another eligible exit. A specifically named offline or disabled exit should not silently fall back to another node.
+
+## Python
+
+Install the [Python client](https://github.com/ManifoldSystems/teapot-py) from GitHub (repository access is currently required):
+
+```bash
+pip install "git+https://github.com/ManifoldSystems/teapot-py"
+```
+
+It needs the local agent running. For example:
+
+```python
+from teapot import Teapot
+
+tp = Teapot()
+for exit in tp.exits(online_only=True):
+    print(exit.name, exit.public_ipv4)
+
+response = tp.get("https://example.com", via="phone-name")
+print(response.status_code)
+```
+
+`via=None` uses the agent's default; `via="*"` rotates among online exits with distinct public IPv4 addresses. See the [client README](https://github.com/ManifoldSystems/teapot-py) for async usage, exact name/id matching, and errors.
