@@ -12,7 +12,7 @@ cd teapot
 cargo build --release
 ```
 
-Use `target/release/teapot` below (or put it on your `PATH` and use `teapot`). There is no published package install command in this guide. The repo is private until the OSS release, so cloning currently needs access.
+Use `target/release/teapot` below (or put it on your `PATH` and use `teapot`). There is no published package install command in this guide. The agent repo is still private while being prepared for open source, so cloning currently needs org access.
 
 ## 2. Register and approve each device
 

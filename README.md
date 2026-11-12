@@ -15,8 +15,8 @@ Guides for [Teapot](https://github.com/ManifoldSystems/teapot): connect your dev
 
 These are **user guides**, not the wire-protocol specification. Consult the [agent's protocol](https://github.com/ManifoldSystems/teapot/blob/main/docs/protocol.md) for message formats. Consult the [agent](https://github.com/ManifoldSystems/teapot), [control plane](https://github.com/ManifoldSystems/teapot-control), [Android app](https://github.com/ManifoldSystems/teapot-app), and [Python client](https://github.com/ManifoldSystems/teapot-py) READMEs for current commands and features. Change behavior/spec there before updating these guides.
 
-The repositories are currently private while the project is prepared for open source; GitHub links require org access until publication. This repo has no live site or automatic deployment yet. The live dashboard at `https://teapot.example.com` is a separate, authenticated service.
+The agent, control plane, Android app, and Python client repositories are still private while being prepared for open source; links to those repos require GitHub org access for now. This docs repo has no live site or automatic deployment yet. The live dashboard at `https://teapot.example.com` is a separate, authenticated service.
 
 ## Contribute / publish
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [publication checklist](PUBLICATION.md). No license is declared yet: choose one with the project owner before making the repositories public. Do not copy credentials, real device identifiers, or production logs into examples.
+See [CONTRIBUTING.md](CONTRIBUTING.md) and the [publication checklist](PUBLICATION.md). No license is declared yet: public visibility does not grant reuse rights. Choose one with the project owner before inviting reuse or external contributions. Do not copy credentials, real device identifiers, or production logs into examples.
