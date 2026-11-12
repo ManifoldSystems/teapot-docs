@@ -2,7 +2,7 @@
 title: 'Quickstart: two computers'
 ---
 
-You need two computers on different networks for a meaningful public-IP test, access to the [control dashboard](https://teapot.example.com/login), and a built Teapot agent on each computer. The Rust agent supports macOS (launchd) and Linux (systemd user service). For a phone instead of the second computer, see [Android exit node](/android).
+You need two computers on different networks for a meaningful public-IP test, your own control-plane deployment, and a built Teapot agent on each computer. Follow the [control-plane setup instructions](https://github.com/ManifoldSystems/teapot-control#setup) first; you will use that deployment's dashboard to approve devices. The Rust agent supports macOS (launchd) and Linux (systemd user service). For a phone instead of the second computer, see [Android exit node](/android).
 
 ## 1. Build the agent
 
@@ -14,15 +14,20 @@ cd teapot
 cargo build --release
 ```
 
-Use `target/release/teapot` below (or put it on your `PATH` and use `teapot`). There is no published package install command in this guide. The agent repo is still private while being prepared for open source, so cloning currently needs org access.
+Use `target/release/teapot` below (or put it on your `PATH` and use `teapot`). There is no published package install command in this guide. The agent repository is public; cloning does not require org access.
 
 ## 2. Register and approve each device
 
 On **each** computer:
 
 ```bash
+export TEAPOT_CONTROL=https://teapot.example.com  # replace with your deployment URL
 ./target/release/teapot login
 ```
+
+Keep `TEAPOT_CONTROL` set for the commands below and for later interactive commands,
+or pass `--control <URL>`. The CLI default is localhost for development, not a hosted
+service. `service install` saves the configured URL in the background service.
 
 This opens the approval page. Sign in as the dashboard administrator and approve the device. If a browser cannot open, run `login --no-browser` and open the printed URL yourself. Never share the admin password or the device's secret key.
 

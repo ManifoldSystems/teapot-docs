@@ -17,7 +17,7 @@ Browse the live docs at [teapot-docs.vercel.app](https://teapot-docs.vercel.app/
 
 These are **user guides**, not the wire-protocol specification. Consult the [agent's protocol](https://github.com/ManifoldSystems/teapot/blob/main/docs/protocol.md) for message formats. Consult the [agent](https://github.com/ManifoldSystems/teapot), [control plane](https://github.com/ManifoldSystems/teapot-control), [Android app](https://github.com/ManifoldSystems/teapot-app), and [Python client](https://github.com/ManifoldSystems/teapot-py) READMEs for current commands and features. Change behavior/spec there before updating these guides.
 
-The agent, control plane, Android app, and Python client repositories are still private while being prepared for open source; links to those repos require GitHub org access for now. The live dashboard at `https://teapot.example.com` is a separate, authenticated service.
+The agent, control plane, Android app, and Python client repositories are public and MIT licensed. Deploy your own control plane; its authenticated dashboard is separate from this documentation site. Configure your devices with that deployment's URL.
 
 ## Run locally
 

@@ -4,7 +4,7 @@ title: Troubleshooting
 
 ## The device is pending or doesn't appear
 
-Run `teapot status` on a computer. New devices need approval: open the link from `teapot login` (or `teapot login --no-browser`) and approve them in the [dashboard](https://teapot.example.com/login). Check that the device can reach the configured control URL. On Android, open the approval page from the app's status screen.
+Set `TEAPOT_CONTROL` to your deployment URL and run `teapot status` on a computer. New devices need approval: open the link from `teapot login` (or `teapot login --no-browser`) and approve them in your deployment's dashboard. Check that the device can reach the configured control URL. On Android, set the Control URL in Settings and open the approval page from the app's status screen.
 
 ## No exits show up
 

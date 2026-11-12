@@ -1,6 +1,6 @@
 # Open-source publication checklist
 
-This is a preparation checklist, **not** a declaration that the whole Teapot project is already open source. The web and docs repositories are public at the owner's request; the agent, control plane, app, and Python client remain private. Review each item before publishing the remaining repositories or announcing an OSS release.
+The agent, control plane, app, and Python client are public and MIT licensed. The web and docs repositories are also public, but do not yet declare their own licenses. This checklist tracks publication work; public visibility alone does not establish a license or prove a security review is complete.
 
 - [ ] Choose licenses with the owner and add matching `LICENSE` files to the agent, control, app, Python, web, and docs repositories. The public web and docs repos currently have no license: public visibility alone does not grant reuse rights. Verify third-party attribution and dependencies separately.
 - [ ] Remove secrets and sensitive history from each repository and verify the entire Git history, not just the current working tree. Rotate any exposed credentials before publication.
